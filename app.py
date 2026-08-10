@@ -15,11 +15,37 @@ st.set_page_config(
 # 2. Sidebar - Pricing & Configuration Mockup
 st.sidebar.title("💰 Studio Workspace")
 
+# 1. Developer Biography / Identity Card
+st.sidebar.markdown("---")
+st.sidebar.subheader("👤 About The Developer")
+
+# Profile Card Container
+with st.sidebar.container(border=True):
+    # Professional Title & Bio
+    st.markdown("### **Deep & ML Engineer**")
+    st.caption("Specializing in Deep Learning, Computer Vision architectures, and high-scale Serverless GPU pipelines.")
+    
+    # Technical Stack Badges using standard Markdown
+    st.markdown("""
+    **Core Engine Tech Stack:**
+    * 🧠 `PyTorch` / `Diffusers`
+    * ⚡ `FastAPI` / `RunPod`
+    * 🎨 `Streamlit Cloud`
+    """)
+
+st.sidebar.markdown("---")
+
+# 2. Subscription Controls (Continued)
+st.sidebar.markdown("### User Session")
+st.sidebar.markdown("Current User: `developer@domain.com`")
+plan = st.sidebar.radio("Active Plan:", ["Free Tier (3 credits remaining)", "Pro Studio ($19/mo)"])
+st.sidebar.progress(0.3, text="3/10 Free Generations Used")
+st.sidebar.markdown("---")
 
 # To use a local image file: Image.open("assets/my_profile.jpg")
 profile_pic_url = "IMG-20260704-WA0633.jpg"
 st.sidebar.image(profile_pic_url, caption="Engineer Workspace", width=120)
-st.sidebar.markdown("### User: `developer@domain.com`")
+st.sidebar.markdown("### User: `bahsulayman689@gmail.com`")
 
 st.sidebar.markdown("---")
 
@@ -118,12 +144,3 @@ with col2:
     else:
         st.info("Upload a product picture on the left to activate the AI Studio engine.")
 
-# 6. Monetization / Social Proof Banner
-st.markdown("---")
-st.subheader("💳 Monitizing Your Custom Streamlit App")
-st.markdown("""
-This Streamlit interface serves as the customer-facing checkout storefront. To launch this commercially:
-* **Stripe Payment Links**: Embed standard Stripe payment URLs natively within the pricing buttons.
-* **User Authentication**: Use built-in [Streamlit Authenticator](https://github.com/mkhorasani/streamlit-authenticator) or external providers like Auth0.
-* **Serverless Scale**: Hook the action button directly to a **RunPod Serverless** custom endpoint running your fine-tuned model.
-""")
